@@ -171,7 +171,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.13.RELEASE/spring-webmvc-4.3.13.RELEASE-sources.jar!/org/springframework/web/servlet/handler/AbstractUrlHandlerMapping.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
+            <state>
               <caret line="144" selection-start-line="144" selection-end-line="144" />
             </state>
           </provider>
@@ -219,6 +219,9 @@
       <find>initStra</find>
       <find>getHan</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -305,6 +308,7 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -580,7 +584,7 @@
       <workItem from="1532522581879" duration="6630000" />
       <workItem from="1532567945045" duration="40000" />
       <workItem from="1532680160691" duration="247000" />
-      <workItem from="1532682860345" duration="657000" />
+      <workItem from="1532682860345" duration="912000" />
     </task>
     <servers />
   </component>
@@ -608,7 +612,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78667000" />
+    <option name="totallyTimeSpent" value="78922000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -639,10 +643,10 @@
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32903227" />
       <window_info anchor="bottom" id="Database Console" order="9" weight="0.32" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.8017903" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.9079284" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32947975" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info anchor="bottom" id="Tail" order="15" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.17935483" />
       <window_info anchor="bottom" id="Problems" order="17" weight="0.32903227" />
@@ -1050,7 +1054,7 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.13.RELEASE/spring-webmvc-4.3.13.RELEASE-sources.jar!/org/springframework/web/servlet/handler/AbstractUrlHandlerMapping.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
+        <state>
           <caret line="144" selection-start-line="144" selection-end-line="144" />
         </state>
       </provider>
