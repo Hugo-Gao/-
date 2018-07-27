@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://cet.neea.edu.cn/html1/folder/1608/1178-1.htm -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>优品秒杀</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="filetype" content="0">
+    <meta name="publishedtype" content="1">
+    <meta name="pagetype" content="2">
+    <link href="http://resource.etest.net.cn/project/CET/Content/ufo3.css?v=3.0" rel="stylesheet" type="text/css"/>
+    <link href="http://resource.etest.net.cn/project/CET/Content/lanrenzhijia.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="http://resource.etest.net.cn/project/CET/scripts/jquery.min.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="layer/layer.js"></script>
+    <!--		<link rel="stylesheet" href="layer/mobile/need/layer.css" />-->
+    <link rel="stylesheet" href="layer/theme/default/layer.css"/>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script src="js/common.js"></script>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">
+            <h1>优品秒杀</h1>
+        </div>
+        <h1 id="goodsClass" style="color: #fff9ec;text-align: center;padding-top: 10px;"></h1>
+        <ul class="layui-nav   layui-layout-right">
+            <li class="layui-nav-item layui-this">
+                <a href="/home.html">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">商品分类</a>
+                <dl class="layui-nav-child" id="exams">
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div id="content" style="padding: 20px; background-color: #F8F8F8;">
+
+    </div>
+
+
+</div>
+
+<style type="text/css">
+    .img {
+        max-width: 100%;
+        max-height: 100%;
+        float: left;
+
+    }
+
+    .spanstyle {
+        color: orangered;
+        font-size: 20px;
+        margin-top: 500px
+    }
+</style>
+<script>
+    var classId = getUrlParam('id');
+    showClass();
+
+    function showClass()
+    {
+
+        $.ajax({
+            url: '/goods/classify',
+            type: 'GET',
+            dataype: 'json',
+            success: function (data)
+            {
+                if (data != null) {
+
+                    console.log(data.data.classes);
+
+                    $(data.data.classes).each(function ()
+                    {
+                        $("#exams").append("<dd> <a href='clazz.html?id=" + this.id + "'>" + this.classname + "</a></dd>");
+                        if (this.id == classId) {
+                            $("#goodsClass").html(this.classname);
+                        }
+                    });
+
+                }
+
+            },
+            error: function ()
+            {
+                layer.alert('请重试');
+            }
+        })
+    }
+
+    displayGoods();
+
+    function displayGoods()
+    {
+
+        $.ajax({
+            url: '/detailgoods/list/' + classId,
+            type: 'GET',
+            dataype: 'json',
+            success: function (data)
+            {
+                if (data != null) {
+                    console.log(data.data.detailGoodsList);
+                    $(data.data.detailGoodsList).each(function ()
+                    {
+                        console.log("test");
+                        $("#content").append("<div class=\"layui-card\">\n" +
+                            "    <div class=\"layui-card-header\">"+this.goodsName+"</div>\n" +
+                            "    <div class=\"layui-card-body\" style=\"height: 400px;\">\n" +
+                            "        <div style=\"float: left;\">\n" +
+                            "            <img style=\"float: left;max-height: 300px;max-width: 400px\" src='"+this.goodsImg+"' />\n" +
+                            "        </div>\n" +
+                            "        <div>\n" +
+                            "            <h1 style=\"font-size: 20px;text-align: center\">"+this.goodsTitle+"</h1>\n" +
+                            "            <h1 style=\"font-size: 20px;padding: 10px\">商品原价￥"+this.goodsPrice+"</h1>\n" +
+                            "            <h1 style=\"font-size: 20px;padding: 10px;color: orangered;\">秒杀价￥"+this.miaoshaPrice+"</h1>\n" +
+                            "            <h1 style=\"font-size: 20px;padding: 10px;color: orangered;\">秒杀开始时间:"+new Date(this.startDate).format("yyyy-MM-dd hh:mm:ss")+"</h1>\n" +
+                            "            <h1 style=\"font-size: 20px;padding: 10px;color: orangered;\">结束时间"+new Date(this.endDate).format("yyyy-MM-dd hh:mm:ss")+"</h1>\n" +
+                            "            <button onclick=\"javascript:window.location.href='goods_detail.htm?goodsId="+this.id+"'\" style=\"margin-top: 40px\" class=\"layui-btn layui-btn-warm layui-btn-radius\">立即秒杀\n" +
+                            "            </button>\n" +
+                            "        </div>\n" +
+                            "    </div>\n" +
+                            "\n" +
+                            "</div>")
+                    });
+                }
+
+            },
+            error: function ()
+            {
+                layer.alert('请重试');
+            }
+        })
+    }
+</script>
+
+<script src="layer/layer.js"></script>
+<script type="text/javascript" src="layui/layui.js"></script>
+<script>
+    layui.use('carousel', function ()
+    {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1',
+            width: '100%' //设置容器宽度
+            ,
+            height: '550px',
+            arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+    layui.use('carousel', function ()
+    {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1',
+            width: '100%' //设置容器宽度
+            ,
+            height: '550px',
+            arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+
+    layui.use('element', function ()
+    {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem)
+        {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+
+</script>
+</body>
+
+</head></html>
