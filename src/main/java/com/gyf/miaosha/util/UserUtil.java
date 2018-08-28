@@ -17,6 +17,7 @@ import java.util.List;
 
 public class UserUtil
 {
+
     private static void createUser(int count) throws Exception{
         List<MiaoshaUser> users = new ArrayList<MiaoshaUser>(count);
         //生成用户

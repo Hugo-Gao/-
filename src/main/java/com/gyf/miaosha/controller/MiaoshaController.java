@@ -190,7 +190,7 @@ public class MiaoshaController implements InitializingBean
         boolean check = miaoshaService.checkVerifyCode(user, goodsId, verifyCode);
         if (!check)
         {
-            return Result.error(CodeMsg.SESSION_ERROR);
+            return Result.error(CodeMsg.CODE_ERROR);
         }
         String path = miaoshaService.createMiaoshaPath(user, goodsId);
         return Result.success(path);
